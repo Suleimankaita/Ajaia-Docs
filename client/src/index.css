@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styling for the TipTap editable area. Kept outside Tailwind's utility
+   classes because it targets nested, dynamically-generated elements
+   (h1/h2/ul/ol produced by the editor) that utility classes can't reach. */
+.tiptap-content {
+  min-height: 60vh;
+  outline: none;
+}
+
+.tiptap-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap-content p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.tiptap-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap-content ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap-content:first-child {
+  margin-top: 0;
+}

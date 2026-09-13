@@ -1,0 +1,27 @@
+{
+  "name": "ajaia-docs-server",
+  "version": "1.0.0",
+  "description": "Backend API for Ajaia Docs - a lightweight collaborative document editor",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/utils/seed.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.0",
+    "multer": "^2.0.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^9.4.0",
+    "supertest": "^7.0.0",
+    "vitest": "^2.0.5"
+  }
+}

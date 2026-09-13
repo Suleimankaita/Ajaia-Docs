@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    build: ./server
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/ajaia-docs
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      JWT_EXPIRES_IN: 7d
+      CLIENT_URL: http://localhost:5173
+      PORT: 4000
+    depends_on:
+      - mongo
+
+  client:
+    build:
+      context: ./client
+      args:
+        VITE_API_URL: http://localhost:4000/api
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo-data:
